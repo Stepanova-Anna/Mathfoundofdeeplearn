@@ -28,8 +28,7 @@ A_point = np.array([1, 2, 3], dtype=float)
 B_point = np.array([3, -4, 6], dtype=float)
 AB = B_point - A_point
 length_AB = np.linalg.norm(AB)
-print(AB, length_AB)
-# [ 2. -6.  3.] 7.0
+
 ```
 
 **Интерпретация.** Вектор $\overrightarrow{AB}$ направлен из $A$ в $B$ и показывает, на сколько нужно изменить каждую координату. Длина (норма) — неотрицательная величина, она равна нулю только для нулевого вектора.
@@ -68,7 +67,7 @@ b = np.array([1, -2, 2], dtype=float)
 dot = np.dot(a, b)
 cos_phi = dot / (np.linalg.norm(a) * np.linalg.norm(b))
 phi_degrees = np.degrees(np.arccos(np.clip(cos_phi, -1.0, 1.0)))
-print(dot, cos_phi, phi_degrees)   # -3.0 -0.7071 135.0
+print(dot, cos_phi, phi_degrees)  
 ```
 
 **Интерпретация.** Скалярное произведение отрицательно ($-3<0$), значит $\cos\varphi<0$, угол **тупой** ($135^\circ$).
@@ -98,7 +97,7 @@ $$
 ```python
 a = np.array([3, 2, -1], dtype=float)
 b = np.array([2, -2, 2], dtype=float)
-print("a @ b =", a @ b)   # a @ b = 0.0
+print("a @ b =", a @ b)  
 ```
 
 **Интерпретация.** Нулевое скалярное произведение означает, что векторы не имеют общей линейной составляющей направления: их проекции друг на друга равны нулю.
@@ -126,7 +125,7 @@ $$
 ```python
 delta_activity = X[-1] - X[0]
 distance_activity = np.linalg.norm(delta_activity)
-print(delta_activity, distance_activity)   # [6. 8.] 10.0
+print(delta_activity, distance_activity)   
 ```
 
 **Интерпретация.** Первая координата измеряется в «часах практики», вторая — в «комплектах упражнений». Поэтому $\|\Delta\|_2=10$ **нельзя** прочесть как «10 единиц прогресса»: евклидова норма смешивает разные шкалы. Перед сравнением признаков выполняют **стандартизацию** (это и делается перед PCA).
